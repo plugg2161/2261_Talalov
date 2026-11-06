@@ -34,7 +34,10 @@ print (*l, **d)
 >>> sublist(lst, 0, 1, 2, 3, 4, 5)
 ['Anna', 'Barbara', 'Clara', 'Diana', 'Eva', 'Flora']
 ```
-
+```python
+def sublist(lst, *nums):
+    return [lst[i] for i in nums]
+```
 ### Задание 3 **(1)**
 
 *Задан список* **lst** *из натуральных чисел*. *Напишите фрагмент
@@ -50,7 +53,11 @@ print (*l, **d)
 >>> print(ans)
 6143
 ```
-
+```py
+lst = list(range(6000 ,7000))
+ans = max(lst, key = lambda i: bin(i).count('1'))
+print(ans)
+```
 
 ### Задание 4 **(2)**
 
@@ -66,7 +73,11 @@ print (*l, **d)
 >>> print (lst)
 ['bye', 'hell', 'babye', 'hello', 'world']
 ```
-
+```py
+lst = ['hello', 'hell', 'bye', 'world', 'bybye']
+lst.sort (key = lambda x: len(x), x)
+print (lst)
+```
 ### Задание 5 **(2)**
 
 *Напишите программу для решения следующей задачи.*
@@ -84,8 +95,10 @@ hello   ,   world ,   and ,   goodbye
 5, 5, 3, 7
 ```
 *Программа должна быть написана с использованием парадигмы функционального программирования, то есть без использования циклов, присваиваний и т.д. Программа может использовать функции* **input**, **print**, **len**, **map** *и методы строк* **split** и **strip**.
-
-
+```py
+print(*map(len, map(str.strip, input().split(','))), sep = ', ')
+```
+Программа - последовательность функций, применяемых к данным.
 ### Задание 6 **(2)**
 
 *Запишите генератор в форме функции, который будет создавать
@@ -100,6 +113,17 @@ hello   ,   world ,   and ,   goodbye
 ```
 >>> print (*gen(7))
 7 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1
+```
+```py
+def gen(x):
+    while x != 1:
+        yield x
+        if x % 2 == 0:
+            x = x//2
+        else:
+            x = 3*x + 1
+print (*gen(7))
+
 ```
 
 ### Задание 7 **(2)**
@@ -123,7 +147,17 @@ def every_other ( seq )
 2 5 11 3 8
 21
 ```
+```py
+def every_other(seq):
+    it = iter(seq)
+    e = next(it, None)
+    while e != None:
+        yield e
+        e = next(it, None)
+        next(it, None)
 
+
+```
 
 
 ### Задание 8 **(2)**
@@ -141,7 +175,11 @@ def every_other ( seq )
 >>> print(nums)
 [1, 2, 3, 4]
 ```
-
+```py
+lst = [1,'abc', 2, 3, 4, 'aa']
+nums = [x for x in lst if type(x) == int]
+print(nums)
+```
 ###  Задание 9 **(2)**
 
 *Напишите фрагмент программы, состоящий из одного конструктора списков, который построит двумерный список в виде таблицы умножения размера* 
@@ -159,7 +197,11 @@ def every_other ( seq )
 [4, 8, 12, 16, 20]
 [5, 10, 15, 20, 25]
 ```
-
+```py
+n = 5
+tblmul = [[i*j for j in range(1, n+ 1)] for i in range(1, n+1)]
+print(*tblmul,sep='\n')
+```
 ###  Задание 10 **(1)**
 *Какие из указанных функций и методов Python соответствуют определению чистых функций?
 В случае отрицательного ответа требуется дать пояснение.*
