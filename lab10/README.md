@@ -81,7 +81,8 @@ if (p < q)
 else
     std::cout << "No";
 ```
-
+Программа сравнивает имена переменных. Можно поменять порядок объявления переменных для иного результата.
+<img width="1376" height="242" alt="image" src="https://github.com/user-attachments/assets/4ee684cb-6192-4b67-8a8f-2741ce9b0fc3" />
 
 ### Задание 6 **(2)**
 
@@ -93,6 +94,9 @@ double x = 0;
 double *d = &x;
 std::cout << reinterpret_cast<size_t>(d + 4) - reinterpret_cast<size_t>(d - 4) << std::endl;
 ```
+Программа выводит число 64 — это разница в байтах между двумя адресами памяти, сдвинутыми на 4 элемента вперед и на 4 элемента назад от переменной x. При замене на инт будет ответ будет 32, а на short 8
+<img width="1364" height="79" alt="image" src="https://github.com/user-attachments/assets/78227811-4e00-46b7-ada3-7e672c1d75b6" />
+<img width="1594" height="128" alt="image" src="https://github.com/user-attachments/assets/7411ead8-f76e-4c35-bfae-fafa541e59e7" />
 
 ### Задание 7 **(2)**
 
@@ -102,6 +106,9 @@ std::cout << reinterpret_cast<size_t>(d + 4) - reinterpret_cast<size_t>(d - 4) <
 ```
 std::cout << reinterpret_cast <double*>(3000) - reinterpret_cast <double*>(2000) << std::endl;
 ```
+Здесь берется разность адресов, которая делится на размер типа.<img width="497" height="102" alt="image" src="https://github.com/user-attachments/assets/789ce6fb-5308-4275-8834-ebb2bda0a7ab" />
+Если заменить на инт: <img width="520" height="104" alt="image" src="https://github.com/user-attachments/assets/ac00ffd7-e28d-4575-b0b9-6e13419532cb" />
+
 
 ### Задание 8 **(2)**
 
@@ -115,7 +122,8 @@ int *b=a + 8;
 for (int i =...; i <...; i++)
     std::cout << b[i] <<' ';
 ```
-
+<img width="1427" height="448" alt="image" src="https://github.com/user-attachments/assets/3b1ef5e7-d555-4965-86d0-a7934173707e" />
+указатель b = a + 8 указывает на элемент a[8], а обращение b[i] работает как a[8 + i]. Чтобы вывести все 20 элементов массива, индекс i должен сдвинуть указатель на 8 позиций назад (-8) для доступа к a[0] и на 11 позиций вперед для доступа к последнему элементу a[19].
 
 ### Задание 9 **(2)**
 
@@ -126,6 +134,8 @@ for (int i =...; i <...; i++)
 int a[10];
 std::cout << &a[8] - &a[3] << std::endl;
 ```
+Программа выводит разность адресов, при изменении типов элементов массива результат не изменится
+<img width="1605" height="292" alt="image" src="https://github.com/user-attachments/assets/b67434bf-113f-45da-9919-913982009c63" />
 
 ### Задание 10 **(1)**
 
